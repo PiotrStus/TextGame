@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TextGame.Locations
 {
-    internal class Inn : Location
+    internal class Castle : Location
     {
-        public Inn() : base(LocationsNames.Inn)
+        public Castle() : base(LocationsNames.Castle)
         {
             AddDescription();
         }

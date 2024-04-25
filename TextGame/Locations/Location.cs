@@ -9,12 +9,12 @@ namespace TextGame.Locations
 {
     internal abstract class Location
     {
-        public Location(string name)
+        public Location(LocationsNames name)
         {
             Name = name;
         }
         public List<Item> AvailableItems { get; protected set; } = new List<Item>();
-        public string Name { get; private set; }
+        public LocationsNames Name { get; private set; }
 
         public List<string> Items { get; private set; }
 
@@ -22,7 +22,7 @@ namespace TextGame.Locations
 
         public void GetDescription()
         {
-            Console.WriteLine(Description);
+            Console.WriteLine($"\n\n{Description}");
         }
 
         public void AddItem(Item newItem)

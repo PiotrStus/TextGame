@@ -9,7 +9,7 @@ namespace TextGame.Locations
 {
     internal class Trail : Location
     {
-        public Trail() : base("Trail")
+        public Trail() : base(LocationsNames.Trail)
         {
             AddDescription();
             AddItems();
@@ -17,13 +17,13 @@ namespace TextGame.Locations
 
         protected override void AddDescription()
         {
-            Description = $"You are in {Name}";
+            Description = $"Your current location is: {Name}";
         }
 
         protected override void AddItems()
         {
             Item item = new Item("sword");
-            item.ItemInfo();
+            //item.ItemInfo();
         }
 
         protected override void ChangeLocationsOptions()
