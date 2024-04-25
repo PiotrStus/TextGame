@@ -12,7 +12,7 @@ namespace TextGame.Locations
         ITEMS,
         TAKE,
         EQUIPMENT,
-        LOCATION,
         HEALTH,
+        LOCATION
     }
 }

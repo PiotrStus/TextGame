@@ -36,30 +36,43 @@ namespace TextGame
         {
             while (gameOn)
             {
-                //Console.Clear();
-                //geralt.ShowItems();
-                currentLocation.GetDescription();
-                Console.WriteLine("\n---------------------\n" +
+                Console.WriteLine("\n-----------------------------------------------" +
+                    "\n-----------------------------------------------" +
                     "\nWhat should I do?\n" +
                     "\n'G' - go to a location" +
                     "\n'I' - show available items" +
                     "\n'E' - show your equipment" +
-                    "\n'L' - show your current location" +
                     "\n'H' - show your current health" +
-                    "\n'T' - take an item\n");
+                    "\n'L' - show your current location" +
+                    "\n'T' - take an item\n" +
+                    "-----------------------------------------------" +
+                    "\n-----------------------------------------------\n");
                 string input = getInput(availableOptions, "option");
                
 
                 switch (input)
                 {
                     case "GO":
+                        Console.Clear();
                         currentLocation = GoToLocation(currentLocation);
                         break;
-                    case "LOCATION":
-                        currentLocation.GetDescription();
-                        break;
                     case "EQUIPMENT":
+                        Console.Clear();
+                        Console.WriteLine("-----------------------------------------------");
                         geralt.ShowItems();
+                        Console.WriteLine("-----------------------------------------------");
+                        break;
+                    case "HEALTH":
+                        Console.Clear();
+                        Console.WriteLine("-----------------------------------------------");
+                        geralt.ShowCurrentHealth();
+                        Console.WriteLine("-----------------------------------------------");
+                        break;
+                    case "LOCATION":
+                        Console.Clear();
+                        Console.WriteLine("-----------------------------------------------");
+                        currentLocation.GetDescription();
+                        Console.WriteLine("-----------------------------------------------");
                         break;
                     default:
                         break;
@@ -71,16 +84,19 @@ namespace TextGame
 
         private Location ChangeLocation(LocationsNames locName1, LocationsNames locName2, Location loc1, Location loc2, char loc1Char, char loc2Char)
         {
-            //Console.Clear();
-            Console.WriteLine("\nWhere should I go? " +
+            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("Where should I go? " +
                         $"\n'{loc1Char}' - go to the {locName1}" +
                         $"\n'{loc2Char}' - go to the {locName2}"
                     );
-            
+            Console.WriteLine("-----------------------------------------------");
             string destination = getInput(availableLocations, "location");
+            Console.Clear();
             if (destination == currentLocation.Name.ToString())
             {
-                Console.WriteLine($"Don't cheat :-) You are already in: {currentLocation.Name} !!!");
+                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine($"I can't do that :-) I am already in: {currentLocation.Name} !!!");
+                Console.WriteLine("-----------------------------------------------");
                 return currentLocation;
             }
             else if (destination != currentLocation.Name.ToString() && destination == locName1.ToString())
@@ -100,25 +116,6 @@ namespace TextGame
             switch (currentLocation.Name)
             {
                 case LocationsNames.Trail:
-                    //Console.WriteLine("\nWhere should I go? " +
-                    //    "\n'I' - go to the old Inn" +
-                    //    "\n'C' - go to the castle"
-                    //);
-                    //destination = getInput(availableLocations, "location");
-                    //if (destination == currentLocation.Name.ToString())
-                    //{
-                    //    Console.WriteLine($"You are already in: {currentLocation.Name} !!!");
-                    //    return currentLocation;
-                    //}
-                    //else if (destination != currentLocation.Name.ToString() && destination == LocationsNames.Inn.ToString())
-                    //{
-                    //    return inn;
-                    //}
-                    //else if (destination != currentLocation.Name.ToString() && destination == LocationsNames.Castle.ToString())
-                    //{
-                    //    return castle;
-                    //}
-                    //return currentLocation;
                     currentLocation = ChangeLocation(LocationsNames.Inn, LocationsNames.Castle, inn, castle, 'I', 'C');
                     return currentLocation;
                 case LocationsNames.Inn:
@@ -130,9 +127,6 @@ namespace TextGame
                 default:
                     return currentLocation;
             }
-
-            
-            
         }
 
         private string getInput(Dictionary<string, string> dict, string inputName)
@@ -157,8 +151,8 @@ namespace TextGame
             availableOptions["I"] = OptionsNames.ITEMS.ToString();
             availableOptions["T"] = OptionsNames.TAKE.ToString();
             availableOptions["E"] = OptionsNames.EQUIPMENT.ToString();
-            availableOptions["L"] = OptionsNames.LOCATION.ToString();
             availableOptions["H"] = OptionsNames.HEALTH.ToString();
+            availableOptions["L"] = OptionsNames.LOCATION.ToString();
             currentLocation = trail;
         }
 
@@ -175,7 +169,7 @@ namespace TextGame
             foreach (char c in intro)
             {
                 Console.Write(c);
-                Thread.Sleep(10);
+                //Thread.Sleep(10);
             }
         }
     }

@@ -18,10 +18,15 @@ namespace TextGame
         {
             return Name;
         }
-        
+
+        public override void ShowCurrentHealth()
+        {
+            Console.WriteLine($"My current health is: {Health}%.");
+        }
+
         public void ShowItems()
         {
-            Console.WriteLine("\nThat's all what I can use: ");
+            Console.WriteLine("That's all what I can use: \n");
             foreach (var item in Items)
             {
                 

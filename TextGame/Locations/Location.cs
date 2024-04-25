@@ -22,7 +22,7 @@ namespace TextGame.Locations
 
         public void GetDescription()
         {
-            Console.WriteLine($"\n\n{Description}");
+            Console.WriteLine($"{Description}");
         }
 
         public void AddItem(Item newItem)

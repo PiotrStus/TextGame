@@ -23,5 +23,10 @@ namespace TextGame
         public List<Item> Items { get; private set; }
 
 
+        public virtual void ShowCurrentHealth()
+        {
+            Console.WriteLine("Showing current health");
+        }
+
     }
 }
