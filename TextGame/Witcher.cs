@@ -27,19 +27,25 @@ namespace TextGame
         public void ShowItems()
         {
             Console.WriteLine("That's all what I can use: \n");
+            int i=1;
             foreach (var item in Items)
             {
                 
                 if (item is Sword )
                 { 
                     Sword sword = (Sword)item;
-                    Console.WriteLine($"{sword.Description} - {sword.Kind} sword");
+                    Console.WriteLine($"{i}) {sword.Description} - {sword.Kind} sword");
                 }
                 else
                 {
-                    Console.WriteLine($"{item.Description}");
+                    Console.WriteLine($"{i}) {item.Description}");
                 }
+                i++;
             }
+        }
+        public void ReceiveItems(Item item)
+        {
+           Items.Add(item);
         }
     }
 }

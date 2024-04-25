@@ -9,7 +9,7 @@ namespace TextGame.Locations
     internal enum OptionsNames
     {
         GO,
-        ITEMS,
+        SEARCH,
         TAKE,
         EQUIPMENT,
         HEALTH,

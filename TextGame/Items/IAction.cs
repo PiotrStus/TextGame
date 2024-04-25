@@ -9,5 +9,6 @@ namespace TextGame.Items
     internal interface IAction
     {
         void Use();
+
     }
 }

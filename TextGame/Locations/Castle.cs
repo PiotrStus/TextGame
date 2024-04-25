@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextGame.Items;
 
 namespace TextGame.Locations
 {
@@ -11,6 +12,7 @@ namespace TextGame.Locations
         public Castle() : base(LocationsNames.Castle)
         {
             AddDescription();
+            AddItems();
         }
 
         protected override void AddDescription()
@@ -18,14 +20,14 @@ namespace TextGame.Locations
             Description = $"Your current location is: {Name}";
         }
 
-        protected override void ChangeLocationsOptions()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override void AddItems()
         {
-            throw new NotImplementedException();
+            Sword sword1 = new Sword("Barker", "silver");
+            AddItem(sword1);
+            Sword sword2 = new Sword("Razor power", "silver");
+            AddItem(sword2);
+            Torch torch1 = new Torch("Old torch");
+            AddItem(torch1);
         }
     }
 }

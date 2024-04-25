@@ -27,11 +27,67 @@ namespace TextGame.Locations
 
         public void AddItem(Item newItem)
         {
+            AvailableItems.Add(newItem);
+        }
 
+        public void RemoveItem(Witcher geralt)
+        {
+            int numberOfItems = AvailableItems.Count;
+            if (numberOfItems > 0)
+            {
+                int i = 0;
+                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine("You can choose:\n");
+                foreach (Item item in AvailableItems)
+                {
+                    Console.WriteLine($"{i + 1}) {item.Description}");
+                    i++;
+                }
+                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine("\nWhich of the items should I take?" +
+                $"\n\nChoose a number{(numberOfItems>1? " from '1' to" : "")} '{numberOfItems}': ");
+                if (int.TryParse(Console.ReadLine(), out int choosenNumber) && choosenNumber <= numberOfItems && choosenNumber > 0)
+                {
+                    Item choosenItem = AvailableItems[choosenNumber-1];
+                    AvailableItems.RemoveAt(choosenNumber-1);
+                    geralt.ReceiveItems(choosenItem);
+                    Console.Clear();
+                }
+                else Console.WriteLine("That's not a correct number.");
+            }
+            else
+            {
+                Console.WriteLine("There are no items here.");
+            }
+        }
+
+        public void ShowItems()
+        {
+            int numberOfItems = AvailableItems.Count;
+            if (numberOfItems > 0)
+            {
+                Console.WriteLine($"All the items you can find in location - {Name}: \n");
+                int i = 0;
+                foreach (var item in AvailableItems)
+                {
+                    {
+                        if (item is Sword)
+                        {
+                            Sword sword = (Sword)item;
+                            Console.WriteLine($"{i + 1}) {sword.Description} - {sword.Kind} sword");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{i + 1}) {item.Description}");
+                        }
+                    }
+                    i++;
+                }
+            }
+            else Console.WriteLine("There are no items here.");
         }
 
         abstract protected void AddItems();
-        abstract protected void ChangeLocationsOptions();
         abstract protected void AddDescription();
     }
 }

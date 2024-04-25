@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace TextGame.Items
 {
-    internal class Sword : Item, IAction
+    internal class Torch : Item, IAction
     {
-        public Sword(string description, string kind) : base(description)
+        public Torch(string description) : base(description)
         {
-            Kind = kind;
         }
-
-        public string Kind { get; private set; }
         public void Use()
         {
-            Console.WriteLine("Damage dealt");
+            Console.WriteLine("There was light");
         }
     }
 }

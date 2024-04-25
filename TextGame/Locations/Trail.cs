@@ -22,13 +22,10 @@ namespace TextGame.Locations
 
         protected override void AddItems()
         {
-            Item item = new Item("sword");
-            //item.ItemInfo();
-        }
-
-        protected override void ChangeLocationsOptions()
-        {
-            throw new NotImplementedException();
+            Sword sword1 = new Sword("Blade of destiny", "silver");
+            AddItem(sword1);
+            Sword sword2 = new Sword("Dragon slayer", "silver");
+            AddItem(sword2);
         }
     }
 }

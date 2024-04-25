@@ -15,8 +15,6 @@ namespace TextGame
         {
             new Sword("Big boy", "steel"),
             new Sword("Dwarf's power", "steel"),
-            new Sword("Blade of destiny", "silver"),
-            new Sword("Dragon slayer", "silver"),
         };
         Witcher geralt = new Witcher("Geralt", 80, items);
         Inn inn = new Inn();
@@ -40,7 +38,7 @@ namespace TextGame
                     "\n-----------------------------------------------" +
                     "\nWhat should I do?\n" +
                     "\n'G' - go to a location" +
-                    "\n'I' - show available items" +
+                    "\n'S' - search for some items" +
                     "\n'E' - show your equipment" +
                     "\n'H' - show your current health" +
                     "\n'L' - show your current location" +
@@ -48,8 +46,6 @@ namespace TextGame
                     "-----------------------------------------------" +
                     "\n-----------------------------------------------\n");
                 string input = getInput(availableOptions, "option");
-               
-
                 switch (input)
                 {
                     case "GO":
@@ -73,6 +69,16 @@ namespace TextGame
                         Console.WriteLine("-----------------------------------------------");
                         currentLocation.GetDescription();
                         Console.WriteLine("-----------------------------------------------");
+                        break;
+                    case "SEARCH":
+                        Console.Clear();
+                        Console.WriteLine("-----------------------------------------------");
+                        currentLocation.ShowItems();
+                        Console.WriteLine("-----------------------------------------------");
+                        break;
+                    case "TAKE":
+                        Console.Clear();
+                        currentLocation.RemoveItem(geralt);
                         break;
                     default:
                         break;
@@ -112,7 +118,6 @@ namespace TextGame
 
         private Location GoToLocation(Location currentLocation)
         {
-            string destination;
             switch (currentLocation.Name)
             {
                 case LocationsNames.Trail:
@@ -148,7 +153,7 @@ namespace TextGame
             availableLocations["C"] = LocationsNames.Castle.ToString();
             availableLocations["T"] = LocationsNames.Trail.ToString();
             availableOptions["G"] = OptionsNames.GO.ToString();
-            availableOptions["I"] = OptionsNames.ITEMS.ToString();
+            availableOptions["S"] = OptionsNames.SEARCH.ToString();
             availableOptions["T"] = OptionsNames.TAKE.ToString();
             availableOptions["E"] = OptionsNames.EQUIPMENT.ToString();
             availableOptions["H"] = OptionsNames.HEALTH.ToString();
