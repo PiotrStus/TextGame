@@ -8,7 +8,8 @@ The Text-Based Game is a simple console-based role-playing game where the player
 ![Class_structure](https://github.com/PiotrStus/TextGame/assets/158161675/a9ce5e9c-5062-42c1-8bbd-ed857f0c12dc)
 
 ## Video:
-![Game presentation video](https://youtu.be/BPYav-x6gc4)
+[![Alt text for your video](http://img.youtube.com/vi/BPYav-x6gc4/0.jpg)](https://youtu.be/BPYav-x6gc4)
+
 
 ## Requirements
 
