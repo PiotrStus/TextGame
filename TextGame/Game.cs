@@ -14,7 +14,7 @@ namespace TextGame
         static List<Item> items = new List<Item>
         {
             new Sword("Big boy", "steel"),
-            new Sword("Dwarf's power", "steel"),
+            new Sword("Dwarf's power", "silver"),
         };
         Witcher geralt = new Witcher("Geralt", 80, items);
         Inn inn = new Inn();
@@ -34,18 +34,21 @@ namespace TextGame
         {
             while (gameOn)
             {
-                Console.WriteLine("\n-----------------------------------------------" +
+                Console.WriteLine("-----------------------------------------------" +
                     "\n-----------------------------------------------" +
                     "\nWhat should I do?\n" +
                     "\n'G' - go to a location" +
                     "\n'S' - search for some items" +
-                    "\n'E' - show your equipment" +
+                    "\n'I' - show your equipment" +
                     "\n'H' - show your current health" +
                     "\n'L' - show your current location" +
+                    "\n'U' - use an item" +
+                    "\n'E' - exit the game" +
                     "\n'T' - take an item\n" +
                     "-----------------------------------------------" +
                     "\n-----------------------------------------------\n");
                 string input = getInput(availableOptions, "option");
+                bool exit = false;
                 switch (input)
                 {
                     case "GO":
@@ -56,25 +59,33 @@ namespace TextGame
                         Console.Clear();
                         Console.WriteLine("-----------------------------------------------");
                         geralt.ShowItems();
-                        Console.WriteLine("-----------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------\n");
                         break;
                     case "HEALTH":
                         Console.Clear();
                         Console.WriteLine("-----------------------------------------------");
                         geralt.ShowCurrentHealth();
-                        Console.WriteLine("-----------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------\n");
                         break;
                     case "LOCATION":
                         Console.Clear();
                         Console.WriteLine("-----------------------------------------------");
                         currentLocation.GetDescription();
-                        Console.WriteLine("-----------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------\n");
                         break;
                     case "SEARCH":
                         Console.Clear();
                         Console.WriteLine("-----------------------------------------------");
                         currentLocation.ShowItems();
-                        Console.WriteLine("-----------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------\n");
+                        break;
+                    case "EXIT":
+                        Console.Clear();
+                        exit = true;
+                        break;
+                    case "USE":
+                        Console.Clear();
+                        geralt.UseItem();
                         break;
                     case "TAKE":
                         Console.Clear();
@@ -83,7 +94,13 @@ namespace TextGame
                     default:
                         break;
                 }
-
+                gameOn = ((geralt.Health != 100) && !exit);
+                if (!gameOn)
+                {
+                    Console.WriteLine("\n-----------------------------------------------");
+                    Console.WriteLine("|------G O O D B Y E ___ W A N D E R E R------|");
+                    Console.WriteLine("-----------------------------------------------\n\n");
+                }
             }
             
         }
@@ -155,9 +172,11 @@ namespace TextGame
             availableOptions["G"] = OptionsNames.GO.ToString();
             availableOptions["S"] = OptionsNames.SEARCH.ToString();
             availableOptions["T"] = OptionsNames.TAKE.ToString();
-            availableOptions["E"] = OptionsNames.EQUIPMENT.ToString();
+            availableOptions["I"] = OptionsNames.EQUIPMENT.ToString();
             availableOptions["H"] = OptionsNames.HEALTH.ToString();
+            availableOptions["U"] = OptionsNames.USE.ToString();
             availableOptions["L"] = OptionsNames.LOCATION.ToString();
+            availableOptions["E"] = OptionsNames.EXIT.ToString();
             currentLocation = trail;
         }
 
@@ -170,7 +189,7 @@ namespace TextGame
                 "a weapon that has seen countless battles. \nAhead lies a signpost, " +
                 "pointing to two directions: inn, castle. \nGerald ponders, seeking a place to rest, " +
                 "his thoughts fixated on an inn for a hearty meal.\nHis senses alert, " +
-                "he awaits the next adventure, ready for whatever challenges may come his way.";
+                "he awaits the next adventure, ready for whatever challenges may come his way.\n";
             foreach (char c in intro)
             {
                 Console.Write(c);

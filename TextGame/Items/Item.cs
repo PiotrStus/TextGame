@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextGame.Items
 {
-    internal class Item
+    internal class Item: IAction
     {
         public Item(string description) 
         {
@@ -17,6 +17,11 @@ namespace TextGame.Items
         public void ItemInfo()
         {
             Console.WriteLine($"This is {Description}");
+        }
+
+        public virtual void Use()
+        {
+            Console.WriteLine("Use an item");
         }
 
 

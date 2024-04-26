@@ -17,7 +17,7 @@ namespace TextGame.Locations
 
         protected override void AddDescription()
         {
-            Description = $"Your current location is: {Name}";
+            Description = $"Your current location is an old abandoned: {Name}";
         }
 
         protected override void AddItems()

@@ -51,13 +51,15 @@ namespace TextGame.Locations
                     Item choosenItem = AvailableItems[choosenNumber-1];
                     AvailableItems.RemoveAt(choosenNumber-1);
                     geralt.ReceiveItems(choosenItem);
-                    Console.Clear();
                 }
                 else Console.WriteLine("That's not a correct number.");
+                Console.Clear();
             }
             else
             {
+                Console.WriteLine("-----------------------------------------------");
                 Console.WriteLine("There are no items here.");
+                Console.WriteLine("-----------------------------------------------\n");
             }
         }
 
@@ -66,7 +68,7 @@ namespace TextGame.Locations
             int numberOfItems = AvailableItems.Count;
             if (numberOfItems > 0)
             {
-                Console.WriteLine($"All the items you can find in location - {Name}: \n");
+                Console.WriteLine($"All the items you can find in the location - {Name}: \n");
                 int i = 0;
                 foreach (var item in AvailableItems)
                 {

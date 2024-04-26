@@ -11,6 +11,7 @@ namespace TextGame
     {
         public string? Name { get;  private set; }
 
+        private const int MAX_HEALTH = 100;
         public int Health { get;  private set; }
 
         public Character(string? name, int health, List<Item> items)
@@ -26,6 +27,16 @@ namespace TextGame
         public virtual void ShowCurrentHealth()
         {
             Console.WriteLine("Showing current health");
+        }
+
+        public void IncreaseHealth(int healthAdded)
+        {
+            Health += healthAdded;
+            if (Health > MAX_HEALTH)
+            {
+                Health = MAX_HEALTH;
+            }
+            Console.WriteLine($"\n\nYour health increased by {healthAdded} points.");
         }
 
     }

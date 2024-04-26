@@ -17,7 +17,7 @@ namespace TextGame.Locations
 
         protected override void AddDescription()
         {
-            Description = $"Your current location is: {Name}";
+            Description = $"Your current location is a big crowded: {Name}";
         }
         protected override void AddItems()
         {
@@ -25,6 +25,8 @@ namespace TextGame.Locations
             AddItem(sword1);
             Sword sword2 = new Sword("Infinity Edge", "silver");
             AddItem(sword2);
+            Bread bread = new Bread("Delicious bread");
+            AddItem(bread);
         }
     }
 }
