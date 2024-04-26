@@ -21,10 +21,8 @@ namespace TextGame
         Trail trail = new Trail();
         Castle castle = new Castle();
         private Location currentLocation;
-
         private Dictionary<string, string> availableLocations = new Dictionary<string, string>();
         private Dictionary<string, string> availableOptions = new Dictionary<string, string>();
-
         public Game()
         {
             GameInit();
@@ -102,9 +100,7 @@ namespace TextGame
                     Console.WriteLine("-----------------------------------------------\n\n");
                 }
             }
-            
         }
-
         private Location ChangeLocation(LocationsNames locName1, LocationsNames locName2, Location loc1, Location loc2, char loc1Char, char loc2Char)
         {
             Console.WriteLine("-----------------------------------------------");
@@ -132,7 +128,6 @@ namespace TextGame
             }
             return currentLocation;
         }
-
         private Location GoToLocation(Location currentLocation)
         {
             switch (currentLocation.Name)
@@ -150,7 +145,6 @@ namespace TextGame
                     return currentLocation;
             }
         }
-
         private string getInput(Dictionary<string, string> dict, string inputName)
         {
             string input = Console.ReadLine().ToUpper();
@@ -163,7 +157,6 @@ namespace TextGame
             input = dict[input];
             return input;
         }
-
         private void GameInit()
         {
             availableLocations["I"] = LocationsNames.Inn.ToString();
@@ -179,7 +172,6 @@ namespace TextGame
             availableOptions["E"] = OptionsNames.EXIT.ToString();
             currentLocation = trail;
         }
-
         private void ShowIntro()
         {
             string intro = $"{geralt}, the witcher, stands before Kaer Morhen. " +

@@ -14,12 +14,10 @@ namespace TextGame.Locations
             AddDescription();
             AddItems();
         }
-
         protected override void AddDescription()
         {
             Description = $"My current location is: {Name}";
         }
-
         protected override void AddItems()
         {
             Sword sword1 = new Sword("Blade of destiny", "silver");

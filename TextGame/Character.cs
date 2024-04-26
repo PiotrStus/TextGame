@@ -9,26 +9,20 @@ namespace TextGame
 {
     internal class Character
     {
-        public string? Name { get;  private set; }
-
+        public string? Name { get; private set; }
         private const int MAX_HEALTH = 100;
-        public int Health { get;  private set; }
-
+        public int Health { get; private set; }
         public Character(string? name, int health, List<Item> items)
-        {  
-            Name = name; 
-            Health = health; 
+        {
+            Name = name;
+            Health = health;
             Items = items;
         }
-
         public List<Item> Items { get; private set; }
-
-
         public virtual void ShowCurrentHealth()
         {
             Console.WriteLine("Showing current health");
         }
-
         public void IncreaseHealth(int healthAdded)
         {
             Health += healthAdded;
@@ -38,6 +32,5 @@ namespace TextGame
             }
             Console.WriteLine($"\n\nYour health increased by {healthAdded} points.");
         }
-
     }
 }

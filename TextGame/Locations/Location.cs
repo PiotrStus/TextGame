@@ -45,11 +45,11 @@ namespace TextGame.Locations
                 }
                 Console.WriteLine("-----------------------------------------------");
                 Console.WriteLine("\nWhich of the items should I take?" +
-                $"\n\nChoose a number{(numberOfItems>1? " from '1' to" : "")} '{numberOfItems}': ");
+                $"\n\nChoose a number{(numberOfItems > 1 ? " from '1' to" : "")} '{numberOfItems}': ");
                 if (int.TryParse(Console.ReadLine(), out int choosenNumber) && choosenNumber <= numberOfItems && choosenNumber > 0)
                 {
-                    Item choosenItem = AvailableItems[choosenNumber-1];
-                    AvailableItems.RemoveAt(choosenNumber-1);
+                    Item choosenItem = AvailableItems[choosenNumber - 1];
+                    AvailableItems.RemoveAt(choosenNumber - 1);
                     geralt.ReceiveItems(choosenItem);
                 }
                 else Console.WriteLine("That's not a correct number.");

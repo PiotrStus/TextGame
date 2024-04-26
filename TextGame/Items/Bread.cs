@@ -11,7 +11,6 @@ namespace TextGame.Items
         public Bread(string description) : base(description)
         {
         }
-
         public override void Use()
         {
             string outro = "What a delicious bread :-)" +

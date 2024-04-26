@@ -12,7 +12,6 @@ namespace TextGame.Items
         {
             Kind = kind;
         }
-
         public string Kind { get; private set; }
         public override void Use()
         {

@@ -14,7 +14,6 @@ namespace TextGame.Locations
             AddDescription();
             AddItems();
         }
-
         protected override void AddDescription()
         {
             Description = $"Your current location is a big crowded: {Name}";

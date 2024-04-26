@@ -7,30 +7,25 @@ using TextGame.Items;
 
 namespace TextGame
 {
-    internal class  Witcher : Character
+    internal class Witcher : Character
     {
-        public Witcher(string name, int health, List<Item> items) : base(name, health, items) 
-        { 
-
+        public Witcher(string name, int health, List<Item> items) : base(name, health, items)
+        {
         }
-
         public override string ToString()
         {
             return Name;
         }
-
         public override void ShowCurrentHealth()
         {
             Console.WriteLine($"My current health is: {Health}%.");
         }
-
         public void ShowItems()
         {
             Console.WriteLine("That's all what I can use: \n");
             int i = 1;
             foreach (var item in Items)
             {
-
                 if (item is Sword)
                 {
                     Sword sword = (Sword)item;
@@ -43,7 +38,6 @@ namespace TextGame
                 i++;
             }
         }
-
         public void UseItem()
         {
             int numberOfItems = Items.Count;
@@ -60,7 +54,6 @@ namespace TextGame
                 Console.WriteLine("-----------------------------------------------");
                 Console.WriteLine("\nWhich of the items should I use?" +
                 $"\n\nChoose a number{(numberOfItems > 1 ? " from '1' to" : "")} '{numberOfItems}': ");
-
                 if (int.TryParse(Console.ReadLine(), out int choosenNumber) && choosenNumber <= numberOfItems && choosenNumber > 0)
                 {
                     Console.Clear();
@@ -71,19 +64,18 @@ namespace TextGame
                     }
                     else if (Items[choosenNumber - 1] is Torch)
                     {
-                        Torch torch = (Torch)Items[choosenNumber-1];
+                        Torch torch = (Torch)Items[choosenNumber - 1];
                         torch.Use();
                     }
                     else if (Items[choosenNumber - 1] is Bread)
                     {
-                        Bread bread = (Bread)Items[choosenNumber-1];
+                        Bread bread = (Bread)Items[choosenNumber - 1];
                         bread.Use();
                         IncreaseHealth(20);
                         ShowCurrentHealth();
                     }
                     else Items[choosenNumber - 1].Use();
                 }
-
                 else
                 {
                     Console.Clear();
@@ -99,12 +91,9 @@ namespace TextGame
                 Console.WriteLine("-----------------------------------------------\n");
             }
         }
-
-
-
         public void ReceiveItems(Item item)
         {
-           Items.Add(item);
+            Items.Add(item);
         }
     }
 }

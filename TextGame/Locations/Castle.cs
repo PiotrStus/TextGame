@@ -14,12 +14,10 @@ namespace TextGame.Locations
             AddDescription();
             AddItems();
         }
-
         protected override void AddDescription()
         {
             Description = $"Your current location is an old abandoned: {Name}";
         }
-
         protected override void AddItems()
         {
             Sword sword1 = new Sword("Barker", "silver");
