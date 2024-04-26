@@ -88,7 +88,7 @@ namespace TextGame
                 if (!gameOn)
                 {
                     Console.WriteLine("\n-----------------------------------------------");
-                    Console.WriteLine("|------G O O D B Y E ___ W A N D E R E R------|");
+                    Console.WriteLine("|----- G O O D B Y E ___ W A N D E R E R -----|");
                     Console.WriteLine("-----------------------------------------------\n\n");
                 }
             }
