@@ -28,6 +28,10 @@ namespace TextGame
             GameInit();
             ShowIntro();
         }
+
+        /// <summary>
+        /// Main game logic
+        /// </summary>
         public void GameOn()
         {
             while (gameOn)
@@ -54,28 +58,16 @@ namespace TextGame
                         currentLocation = GoToLocation(currentLocation);
                         break;
                     case "EQUIPMENT":
-                        Console.Clear();
-                        Console.WriteLine("-----------------------------------------------");
-                        geralt.ShowItems();
-                        Console.WriteLine("-----------------------------------------------\n");
+                        ClearAndExecute(() => geralt.ShowItems());
                         break;
                     case "HEALTH":
-                        Console.Clear();
-                        Console.WriteLine("-----------------------------------------------");
-                        geralt.ShowCurrentHealth();
-                        Console.WriteLine("-----------------------------------------------\n");
+                        ClearAndExecute(() => geralt.ShowCurrentHealth());
                         break;
                     case "LOCATION":
-                        Console.Clear();
-                        Console.WriteLine("-----------------------------------------------");
-                        currentLocation.GetDescription();
-                        Console.WriteLine("-----------------------------------------------\n");
+                        ClearAndExecute(() => currentLocation.GetDescription());
                         break;
                     case "SEARCH":
-                        Console.Clear();
-                        Console.WriteLine("-----------------------------------------------");
-                        currentLocation.ShowItems();
-                        Console.WriteLine("-----------------------------------------------\n");
+                        ClearAndExecute(() => currentLocation.ShowItems());
                         break;
                     case "EXIT":
                         Console.Clear();
@@ -101,6 +93,29 @@ namespace TextGame
                 }
             }
         }
+
+        /// <summary>
+        /// Executing a method as an argument
+        /// </summary>
+        /// <param name="action"></param>
+        public void ClearAndExecute(Action action)
+        {
+            Console.Clear();
+            Console.WriteLine("-----------------------------------------------");
+            action();
+            Console.WriteLine("-----------------------------------------------\n");
+        }
+
+        /// <summary>
+        /// Changing witcher's location
+        /// </summary>
+        /// <param name="locName1">enum loc1</param>
+        /// <param name="locName2">enum loc2</param>
+        /// <param name="loc1">first location object</param>
+        /// <param name="loc2">second location object</param>
+        /// <param name="loc1Char">first letter of first location</param>
+        /// <param name="loc2Char">first letter of second location</param>
+        /// <returns></returns>
         private Location ChangeLocation(LocationsNames locName1, LocationsNames locName2, Location loc1, Location loc2, char loc1Char, char loc2Char)
         {
             Console.WriteLine("-----------------------------------------------");
@@ -128,6 +143,12 @@ namespace TextGame
             }
             return currentLocation;
         }
+        
+       /// <summary>
+       /// Changing location basing on a current location
+       /// </summary>
+       /// <param name="currentLocation"></param>
+       /// <returns></returns>
         private Location GoToLocation(Location currentLocation)
         {
             switch (currentLocation.Name)
@@ -145,6 +166,13 @@ namespace TextGame
                     return currentLocation;
             }
         }
+        
+        /// <summary>
+        /// Validating an input
+        /// </summary>
+        /// <param name="dict"></param>
+        /// <param name="inputName"></param>
+        /// <returns></returns>
         private string getInput(Dictionary<string, string> dict, string inputName)
         {
             string input = Console.ReadLine().ToUpper();
@@ -157,6 +185,10 @@ namespace TextGame
             input = dict[input];
             return input;
         }
+        
+        /// <summary>
+        /// Game initialization
+        /// </summary>
         private void GameInit()
         {
             availableLocations["I"] = LocationsNames.Inn.ToString();
@@ -172,6 +204,10 @@ namespace TextGame
             availableOptions["E"] = OptionsNames.EXIT.ToString();
             currentLocation = trail;
         }
+
+        /// <summary>
+        /// Showing an intro when the game starts
+        /// </summary>
         private void ShowIntro()
         {
             string intro = $"{geralt}, the witcher, stands before Kaer Morhen. " +
