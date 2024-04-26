@@ -1,4 +1,4 @@
-# Text-Based Game - Geralt's adventures
+# Text-Based Game : Geralt's adventures
 
 ## Description
 
