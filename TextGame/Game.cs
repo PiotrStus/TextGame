@@ -217,7 +217,7 @@ namespace TextGame
                 "a weapon that has seen countless battles. \nAhead lies a signpost, " +
                 "pointing to two directions: inn, castle. \nGerald ponders, seeking a place to rest, " +
                 "his thoughts fixated on an inn for a hearty meal.\nHis senses alert, " +
-                "he awaits the next adventure, ready for whatever challenges may come his way.\n";
+                "he awaits the next adventure, ready for whatever challenges may come his way.\n\n";
             foreach (char c in intro)
             {
                 Console.Write(c);
