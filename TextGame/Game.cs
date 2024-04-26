@@ -221,7 +221,7 @@ namespace TextGame
             foreach (char c in intro)
             {
                 Console.Write(c);
-                //Thread.Sleep(10);
+                Thread.Sleep(10);
             }
         }
     }
