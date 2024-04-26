@@ -49,7 +49,7 @@ namespace TextGame
                     "\n'T' - take an item\n" +
                     "-----------------------------------------------" +
                     "\n-----------------------------------------------\n");
-                string input = getInput(availableOptions, "option");
+                string input = GetInput(availableOptions, "option");
                 bool exit = false;
                 switch (input)
                 {
@@ -124,7 +124,7 @@ namespace TextGame
                         $"\n'{loc2Char}' - go to the {locName2}"
                     );
             Console.WriteLine("-----------------------------------------------");
-            string destination = getInput(availableLocations, "location");
+            string destination = GetInput(availableLocations, "location");
             Console.Clear();
             if (destination == currentLocation.Name.ToString())
             {
@@ -173,7 +173,7 @@ namespace TextGame
         /// <param name="dict"></param>
         /// <param name="inputName"></param>
         /// <returns></returns>
-        private string getInput(Dictionary<string, string> dict, string inputName)
+        private string GetInput(Dictionary<string, string> dict, string inputName)
         {
             string input = Console.ReadLine().ToUpper();
             while (!dict.ContainsKey(input))

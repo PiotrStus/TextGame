@@ -15,21 +15,15 @@ namespace TextGame.Locations
         }
         public List<Item> AvailableItems { get; protected set; } = new List<Item>();
         public LocationsNames Name { get; private set; }
-
-        public List<string> Items { get; private set; }
-
         public string Description { get; protected set; }
-
         public void GetDescription()
         {
             Console.WriteLine($"{Description}");
         }
-
         public void AddItem(Item newItem)
         {
             AvailableItems.Add(newItem);
         }
-
         public void RemoveItem(Witcher geralt)
         {
             int numberOfItems = AvailableItems.Count;
@@ -62,7 +56,6 @@ namespace TextGame.Locations
                 Console.WriteLine("-----------------------------------------------\n");
             }
         }
-
         public void ShowItems()
         {
             int numberOfItems = AvailableItems.Count;
@@ -88,7 +81,6 @@ namespace TextGame.Locations
             }
             else Console.WriteLine("There are no items here.");
         }
-
         abstract protected void AddItems();
         abstract protected void AddDescription();
     }

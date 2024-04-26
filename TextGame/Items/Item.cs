@@ -17,7 +17,6 @@ namespace TextGame.Items
         {
             Console.WriteLine($"This is {Description}");
         }
-
         public void Use()
         {
             Console.WriteLine("-----------------------------------------------");
