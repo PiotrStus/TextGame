@@ -13,7 +13,7 @@ namespace TextGame.Items
             Kind = kind;
         }
         public string Kind { get; private set; }
-        public override void Use()
+        public void Use()
         {
             Console.WriteLine("-----------------------------------------------");
             Console.WriteLine("Damage dealt");
