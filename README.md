@@ -2,7 +2,7 @@
 
 ## Description
 
-The Text-Based Game is a simple console-based role-playing game where the player assumes the role of the witcher Geralt. The game involves interacting with the player by entering commands in the console to perform various actions such as moving between locations, searching for items, using them, checking current health, etc.
+The Text-Based Game is a simple console-based role-playing game where the player assumes the role of the witcher Geralt. The game involves interacting with the player by entering commands in the console to perform various actions such as: moving between locations, searching for items, using them, checking current health, etc.
 
 ## Class diagram:
 ![Class_structure](https://github.com/PiotrStus/TextGame/assets/158161675/a9ce5e9c-5062-42c1-8bbd-ed857f0c12dc)
